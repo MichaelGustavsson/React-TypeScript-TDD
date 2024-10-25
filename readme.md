@@ -1,4 +1,4 @@
-# JavaScript 4
+# React+TypeScript+TDD
 
 Här finns all kod som jag kommer att använda under våra lektioner tillsammans
 
@@ -12,5 +12,7 @@ Så för att inte komplicera och tappa fokuset på TDD så kommer jag att inledn
 
 ## TypeScript
 
-Vi kommer även att istället för att använda JavaScript så kommer vi att skriva kod med TypeScript.
-TypeScript ger oss fördelar över _Vanilla JavaScript_ som typhantering av vår kod som i sin tur minimerar risken för svårhittade buggar.
+Vi kommer att använda TypeScript, TypeScript ger oss fördelar över _Vanilla JavaScript_ som typhantering av vår kod som i sin tur minimerar risken för svårhittade buggar.
+
+## Next.js
+I kursen kommer jag att ge en övergripande bild av Next.js och i vilka typer av projekt som det kan vara nödvändigt att använda Next.js över Vite baserade React applikationer.
