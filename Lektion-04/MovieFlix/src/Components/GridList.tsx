@@ -1,7 +1,7 @@
 import { IMovie } from '../Models/IMovie';
-import { Item } from './Item';
 
 import styles from './gridlist.module.css';
+import { Item } from './Item';
 
 export const GridList = ({ movies }: { movies: IMovie[] }) => {
   return (

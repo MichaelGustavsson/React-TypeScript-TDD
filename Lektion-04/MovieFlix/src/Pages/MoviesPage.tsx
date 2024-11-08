@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react';
+import { Header } from '../Components/UI/Header';
 import { IMovie } from '../Models/IMovie';
-import { LoadMovies } from '../Utilities/LoadMovies';
 import { GridList } from '../Components/GridList';
-import { Header } from '../Components/Header';
+import { LoadMovies } from '../Utilities/LoadMovies';
 
 export const MoviesPage = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
 
   useEffect(() => {
-    fetchMovies();
+    loadMovies();
   }, []);
 
-  const fetchMovies = async () => {
-    setMovies(await LoadMovies());
+  const loadMovies = async () => {
+    setMovies(await LoadMovies('discover/movie'));
   };
 
   return (
     <>
-      <Header title='Populära filmer' />
+      <Header title='Populära Filmer' />
       <GridList movies={movies} />
     </>
   );
