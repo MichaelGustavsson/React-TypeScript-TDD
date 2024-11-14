@@ -1,18 +1,12 @@
 import { IMovie } from '../Models/IMovie';
 import { IShow } from '../Models/IShow';
-import Item from './Item';
+import GridList from './GridList';
 
 type ItemListProps = {
   items: IMovie[] | IShow[];
 };
 
 const ItemsList = ({ items }: ItemListProps) => {
-  return (
-    <section className='grid'>
-      {items.map((item) => (
-        <Item key={item.id} item={item} />
-      ))}
-    </section>
-  );
+  return <GridList items={items} />;
 };
 export default ItemsList;

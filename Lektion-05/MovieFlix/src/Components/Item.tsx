@@ -2,6 +2,7 @@ import { IMovie } from '../Models/IMovie';
 import { IShow } from '../Models/IShow';
 import Card from './UI/Card';
 import ImageLink from './UI/ImageLink';
+import ItemInfo from './UI/ItemInfo';
 
 type ItemProps = {
   item: IMovie | IShow;
@@ -21,11 +22,7 @@ const Item = ({ item }: ItemProps) => {
           imageSrc={media.poster_path}
           altText={media.title}
         />
-
-        <div className='card-body'>
-          <h5>{media.title}</h5>
-          <small className='text-muted'>{media.release_date}</small>
-        </div>
+        <ItemInfo title={media.title} detailText={media.release_date} />
       </Card>
     );
   }
@@ -40,10 +37,7 @@ const Item = ({ item }: ItemProps) => {
         imageSrc={media.poster_path}
         altText={media.name}
       />
-      <div className='card-body'>
-        <h5>{media.name}</h5>
-        <small className='text-muted'>{media.first_air_date}</small>
-      </div>
+      <ItemInfo title={media.name} detailText={media.first_air_date} />
     </Card>
   );
 };

@@ -16,6 +16,7 @@ export const MoviesPage = () => {
 
   return (
     <>
+      {/* <Title title='' size='' */}
       <h1 className='page-title'>Populära Filmer</h1>
       <ItemsList items={movies} />
     </>
