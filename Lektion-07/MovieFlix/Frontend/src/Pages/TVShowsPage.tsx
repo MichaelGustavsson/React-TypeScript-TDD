@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { IMedia } from '../Models/IMedia';
 import { LoadShows } from '../Utilities/LoadShows';
 import ItemsList from '../Components/ItemsList';
+import Search from '../Components/UI/Search';
 
 export const TVShowsPage = () => {
   const [shows, setShows] = useState<IMedia[]>([]);
@@ -10,11 +11,15 @@ export const TVShowsPage = () => {
     loadShows();
   }, []);
 
-  const loadShows = async () => {
+  const loadShows = async (searchCriteria?: string) => {
     let result = [];
     const mediaList: IMedia[] = [];
 
-    result = await LoadShows('/shows');
+    if (searchCriteria) {
+      result = await LoadShows(`/shows?query=${searchCriteria}`);
+    } else {
+      result = await LoadShows('/shows');
+    }
 
     result.map((item) => {
       const { id, title, posterImage, releaseDate }: IMedia = item;
@@ -31,8 +36,13 @@ export const TVShowsPage = () => {
     setShows(mediaList);
   };
 
+  const handleSearch = async (criteria: string) => {
+    loadShows(criteria);
+  };
+
   return (
     <>
+      <Search onSearch={handleSearch} />
       <h1 className='page-title'>Populära Serier</h1>
       <ItemsList items={shows} />
     </>

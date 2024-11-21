@@ -1,5 +1,10 @@
-export const fetchData = async (endpoint) => {
-  const url = `${process.env.BASE_URL}/${endpoint}?api_key=${process.env.API_KEY}&language=sv-SE`;
+export const fetchData = async (endpoint, query) => {
+  let url;
+  if (query) {
+    url = `${process.env.BASE_URL}/${endpoint}?query=${query}&api_key=${process.env.API_KEY}`;
+  } else {
+    url = `${process.env.BASE_URL}/${endpoint}?api_key=${process.env.API_KEY}`;
+  }
 
   try {
     const response = await fetch(url);

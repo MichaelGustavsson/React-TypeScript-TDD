@@ -2,7 +2,14 @@ import { ItemsModel, DetailsModel } from '../models/ItemsModel.mjs';
 import { fetchData } from '../utilities/httpClient.mjs';
 
 export const listShows = async (req, res) => {
+  let { query } = req.query;
   try {
+    if (query) {
+      const result = await searchShows(query);
+      res.status(200).json(result);
+      return;
+    }
+
     const items = [];
     const result = await fetchData('discover/tv');
     // projecering av datat...
@@ -52,5 +59,34 @@ export const findShow = async (req, res) => {
     return;
   } catch (error) {
     res.status(500).json({ success: false, message: error });
+  }
+};
+
+const searchShows = async (query) => {
+  try {
+    const result = await fetchData('search/tv', query);
+    const items = [];
+
+    result.results.map((item) => {
+      items.push(
+        new ItemsModel(
+          item.id,
+          item.name,
+          item.poster_path,
+          item.first_air_date
+        )
+      );
+    });
+
+    return {
+      success: true,
+      result: {
+        pageNo: result.page,
+        totalPages: result.total_pages,
+        data: items,
+      },
+    };
+  } catch (error) {
+    throw new Error(error);
   }
 };

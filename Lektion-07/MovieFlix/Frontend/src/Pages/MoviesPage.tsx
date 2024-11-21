@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { LoadMovies } from '../Utilities/LoadMovies';
 import ItemsList from '../Components/ItemsList';
 import { IMedia } from '../Models/IMedia';
+import Search from '../Components/UI/Search';
 
 export const MoviesPage = () => {
   const [movies, setMovies] = useState<IMedia[]>([]);
@@ -10,11 +11,15 @@ export const MoviesPage = () => {
     loadMovies();
   }, []);
 
-  const loadMovies = async () => {
+  const loadMovies = async (searchCritera?: string) => {
     let result = [];
     const mediaList: IMedia[] = [];
 
-    result = await LoadMovies('/movies');
+    if (searchCritera) {
+      result = await LoadMovies(`/movies?query=${searchCritera}`);
+    } else {
+      result = await LoadMovies('/movies');
+    }
 
     result.map((item) => {
       const { id, title, posterImage, releaseDate }: IMedia = item;
@@ -31,8 +36,13 @@ export const MoviesPage = () => {
     setMovies(mediaList);
   };
 
+  const handleSearch = async (criteria: string) => {
+    loadMovies(criteria);
+  };
+
   return (
     <>
+      <Search onSearch={handleSearch} />
       <h1 className='page-title'>Populära Filmer</h1>
       <ItemsList items={movies} />
     </>
