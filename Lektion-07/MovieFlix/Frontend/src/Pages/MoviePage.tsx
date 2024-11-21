@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { FindMovie } from '../Utilities/FindMovie';
-import { IMovie } from '../Models/IMovie';
+import { IMediaDetails } from '../Models/IMediaDetails';
 
 export const MoviePage = () => {
-  const [movie, setMovie] = useState<IMovie>();
+  const [movie, setMovie] = useState<IMediaDetails>();
   const [backgroundImage, setBackgroundImage] = useState<string>('');
   const [poster, setPoster] = useState<string>('');
   const { id } = useParams();

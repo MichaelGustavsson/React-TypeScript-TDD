@@ -11,12 +11,28 @@ export const MoviesPage = () => {
   }, []);
 
   const loadMovies = async () => {
-    setMovies(await LoadMovies('/movies'));
+    let result = [];
+    const mediaList: IMedia[] = [];
+
+    result = await LoadMovies('/movies');
+
+    result.map((item) => {
+      const { id, title, posterImage, releaseDate }: IMedia = item;
+      const media: IMedia = {
+        id,
+        title,
+        posterImage,
+        releaseDate,
+        mediaType: 'movie',
+      };
+      mediaList.push(media);
+    });
+
+    setMovies(mediaList);
   };
 
   return (
     <>
-      {/* <Title title='' size='' */}
       <h1 className='page-title'>Populära Filmer</h1>
       <ItemsList items={movies} />
     </>

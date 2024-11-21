@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { IMovie } from '../Models/IMovie';
+import { IMediaDetails } from '../Models/IMediaDetails';
 
-export const FindMovie = async (endpoint: string): Promise<IMovie> => {
+export const FindMovie = async (endpoint: string): Promise<IMediaDetails> => {
   const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const url = `${baseUrl}${endpoint}`;

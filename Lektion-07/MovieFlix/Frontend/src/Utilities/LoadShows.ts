@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { IShow } from '../Models/IShow';
+import { IMedia } from '../Models/IMedia';
 
-export const LoadShows = async (endpoint: string): Promise<IShow[]> => {
+export const LoadShows = async (endpoint: string): Promise<IMedia[]> => {
   const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const url = `${baseUrl}${endpoint}`;

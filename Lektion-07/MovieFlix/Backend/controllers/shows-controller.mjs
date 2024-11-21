@@ -39,11 +39,13 @@ export const findShow = async (req, res) => {
     const item = new DetailsModel(
       result.id,
       result.name,
+      result.overview,
       result.poster_path,
       result.first_air_date,
       result.backdrop_path,
       result.genres,
-      result.number_of_episodes
+      result.number_of_episodes,
+      result.vote_average
     );
 
     res.status(200).json({ success: true, result: item });

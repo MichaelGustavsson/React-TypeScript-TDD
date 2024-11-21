@@ -11,6 +11,7 @@ export class DetailsModel extends ItemsModel {
   constructor(
     id,
     title,
+    overview,
     posterImage,
     releaseDate,
     backgroundImage,
@@ -20,6 +21,7 @@ export class DetailsModel extends ItemsModel {
   ) {
     super(id, title, posterImage, releaseDate);
 
+    this.overview = overview;
     this.backgroundImage = backgroundImage;
     this.genre = genre;
     this.runtime = runtime;

@@ -11,7 +11,11 @@ const Item = ({ item }: ItemProps) => {
   return (
     <Card>
       <ImageLink
-        href={`/shows/${item.id}`}
+        href={
+          item.mediaType === 'movie'
+            ? `/movies/${item.id}`
+            : `/shows/${item.id}`
+        }
         imageSrc={item.posterImage}
         altText={item.title}
       />
