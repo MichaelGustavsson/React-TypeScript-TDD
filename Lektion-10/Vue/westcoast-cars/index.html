@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="site.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Westcoast Cars | Vue</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>{{title}}</h1>
+      </header>
+      <main>
+        <ul>
+          <li v-for="vehicle in vehicles" :key="vehicle.id">
+            <vehicle :vehicle="vehicle" @display-details="updateDisplay" />
+          </li>
+        </ul>
+
+        <h4 v-if="selectedVehicle">
+          {{selectedVehicle.manufacturer + ' ' + selectedVehicle.model}}
+        </h4>
+      </main>
+    </div>
+
+    <!-- Import App -->
+    <script src="./main.js"></script>
+    <!-- Import Components -->
+    <script src="./components/vehicle.js"></script>
+    <!-- Mount the App -->
+    <script>
+      const mountedApp = app.mount('#app');
+    </script>
+  </body>
+</html>
