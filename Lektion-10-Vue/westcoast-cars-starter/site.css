@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Raleway', sans-serif;
+  color: #f4f4f4;
+  background: rgb(5, 150, 105);
+  background: linear-gradient(
+    180deg,
+    rgba(5, 150, 105, 1) 0%,
+    rgba(45, 212, 191, 1) 100%
+  );
+  padding-top: 4rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 2rem;
+  width: 90%;
+  max-width: 50rem;
+  margin: 4rem auto;
+}
+
+h1,
+h4 {
+  font-weight: 400;
+}
+
+h1 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: auto;
+}
+
+.card {
+  border-radius: 1rem;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.card button {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background: transparent;
+  color: #f4f4f4;
+  border: none;
+  outline: none !important;
+  width: 100%;
+  min-width: 10rem;
+  text-align: left;
+  background: linear-gradient(90deg, #115e59 20%, #0d9488 100%);
+}
+
+.card img {
+  width: 5rem;
+  object-fit: contain;
+  border-radius: 10%;
+  border: solid 1px #f4f4f4;
+}
