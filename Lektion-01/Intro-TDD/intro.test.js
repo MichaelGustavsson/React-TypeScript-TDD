@@ -4,6 +4,8 @@ import { sum, subtract } from './intro';
 // Steg 1. Skapa en test svit...
 describe('Calculator', () => {
   // it eller test beskriver testet
+  it('I am testing', () => {});
+
   it('Sum should return correct value', () => {
     // Förväntning för ett resultat
     // Act...
